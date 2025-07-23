@@ -1,0 +1,477 @@
+/* ======= 1. THEME VARIABLES (LIGHT MODE DEFAULT) ======= */
+:root {
+  --bg-color: #f5f7fa;
+  --text-color: #333;
+  --sidebar-bg: #1f1f2e;
+  --sidebar-text: #fff;
+  --sidebar-title: #d2d6dc;
+  --sidebar-link: #cbd5e1;
+  --sidebar-hover: #38bdf8;
+  --header-bg: #ffffff;
+  --header-title: #1f2937;
+  --card-color-1: #3b82f6;
+  --card-color-2: #f97316;
+  --card-color-3: #22c55e;
+  --card-color-4: #6b7280;
+  --task-bg: #fff;
+  --task-border: #e5e7eb;
+  --table-stripe: #f9fafb;
+  --button-bg: #2563eb;
+  --button-hover: #1d4ed8;
+}
+
+/* ======= 2. DARK MODE VARIABLES OVERRIDE ======= */
+body.dark {
+  --bg-color: #18181b;
+  --text-color: #f3f4f6;
+  --sidebar-bg: #111827;
+  --sidebar-text: #e5e7eb;
+  --sidebar-title: #9ca3af;
+  --sidebar-link: #d1d5db;
+  --sidebar-hover: #60a5fa;
+  --header-bg: #1f2937;
+  --header-title: #f3f4f6;
+  --card-color-1: #2563eb;
+  --card-color-2: #ea580c;
+  --card-color-3: #16a34a;
+  --card-color-4: #374151;
+  --task-bg: #27272a;
+  --task-border: #4b5563;
+  --table-stripe: #1f2937;
+  --button-bg: #3b82f6;
+  --button-hover: #2563eb;
+}
+
+/* ======= 3. BASE RESET ======= */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* ======= 4. LAYOUT ======= */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.layout {
+  display: flex;
+  flex: 1;
+}
+
+/* ======= 5. SIDEBAR ======= */
+.sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 20px;
+}
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: var(--sidebar-title);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar li {
+  margin: 12px 0;
+  font-size: 16px;
+}
+.sidebar a {
+  color: var(--sidebar-link);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sidebar a:hover {
+  color: var(--sidebar-hover);
+}
+
+/* ======= 6. HEADER ======= */
+.header {
+  background: var(--header-bg);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--task-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.header .dashboard-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--header-title);
+}
+.profile {
+  font-size: 18px;
+}
+
+/* ======= 7. MAIN CONTENT ======= */
+.main-content {
+  flex: 1;
+  padding: 20px 30px;
+  overflow-y: auto;
+}
+
+/* ======= 8. STATS CARDS ======= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.card {
+  background-color: var(--card-color-1);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  min-height: 100px;
+}
+.card:nth-child(2) { background-color: var(--card-color-2); }
+.card:nth-child(3) { background-color: var(--card-color-3); }
+.card:nth-child(4) { background-color: var(--card-color-4); }
+
+/* ======= 9. TASK SECTIONS ======= */
+.tasks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.task-column {
+  background: var(--task-bg);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.task-column h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+/* ======= 10. SELECT & TABLE ======= */
+select {
+  margin-bottom: 10px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+}
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--task-border);
+}
+tr:nth-child(even) {
+  background-color: var(--table-stripe);
+}
+
+/* ======= 11. BUTTON ======= */
+button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  border: none;
+  background: var(--button-bg);
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+button:hover {
+  background-color: var(--button-hover);
+}
+
+/* ======= 12. LOGIN SCREEN ======= */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+  padding: 20px;
+}
+.login-box {
+  background: #fff;
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: var(--header-title);
+}
+.login-box label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+}
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.login-box input:focus {
+  border-color: #38bdf8;
+}
+.login-box .btn-login {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.login-box .btn-login:hover {
+  background-color: var(--button-hover);
+}
+.login-box .form-footer {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #666;
+}
+body.dark .login-wrapper {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+body.dark .login-box {
+  background: var(--task-bg);
+  color: var(--text-color);
+}
+body.dark .login-box input {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #4b5563;
+}
+body.dark .form-footer {
+  color: #ccc;
+}
+.user-name {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+/* ======= 13. TASK FORM ======= */
+.task-form-container {
+  background: var(--task-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  max-width: 96%;
+  margin: 2rem auto;
+}
+@media (min-width: 768px) {
+  .task-form-container {
+    max-width: 95%;
+  }
+}
+@media (min-width: 1024px) {
+  .task-form-container {
+    max-width: 90%;
+  }
+}
+.task-form-container h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--header-title);
+  margin-bottom: 1.25rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--task-border);
+  background: #f9fafb;
+  transition: 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  background: #fff;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.radio-option input[type="radio"] {
+  transform: scale(1.2);
+  accent-color: var(--button-bg);
+  margin: 0;
+}
+.form-group button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  background: var(--button-bg);
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-group button:hover {
+  background: var(--button-hover);
+}
+.form-group button + button {
+  background: #e5e7eb;
+  color: #1f2937;
+  margin-left: 0.8rem;
+}
+.form-group button + button:hover {
+  background: #d1d5db;
+}
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .form-group textarea {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: var(--task-border);
+}
+body.dark .form-group button + button {
+  background: #374151;
+  color: #d1d5db;
+}
+body.dark .form-group button + button:hover {
+  background: #4b5563;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f2f5f9;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-card {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-card h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.form-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-card input:focus {
+  outline: none;
+  border-color: #2a9d8f;
+  box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #2a9d8f;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #21867a;
+}
+
+.success-msg {
+  color: green;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.error-msg {
+  color: red;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.redirect-msg {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.redirect-link {
+  color: #2a9d8f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
