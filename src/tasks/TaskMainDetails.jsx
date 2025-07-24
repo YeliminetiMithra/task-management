@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTasks } from "../context/TaskContext";
-import styles from '../App.css';
+import styles from './TaskMainDetails.css';
 
 export default function TaskMainDetails() {
   const initialForm = {
